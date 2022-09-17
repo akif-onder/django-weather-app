@@ -10,18 +10,28 @@
 
 <body>
     <h1>Weather App</h1>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message">{{message}} </div>
+    {% endfor %}
+    {% endif %}
+    <hr><br>
+
     <form action="" method="post">
         {% csrf_token %}
         <input type="text" name="name">
         <input type="submit" value="add_city" id="">
 
     </form>
-    <br><hr>
-
+    <br>
+    <hr>
+    {% for i in city_data %}
     {{city}} <br>
     {{temp}} <br>
-    <img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt=""> <br>    
+    <img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt=""> <br>
     {{desc}} <br>
+    {% endfor %}
 </body>
 
 </html>
